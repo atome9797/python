@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MovieFinder - Recovery</title>
+
+        <!-- BootStrap -->
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+              integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+              crossorigin="anonymous">
+
+        <!-- CSS Resister_Recovery Style -->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/html/register_recovery.css')}}">
+
+    </head>
+
+    <body>
+        <!-- login_modal -->
+        <div id="login_modal" class="modal fade" tabindex="-1" aria-labelledby="login_modalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header border-bottom-0 justify-content-center">
+                        <img src="{{url_for('static', filename='images/html/common/logo.svg')}}"
+                             alt="logo_img">
+                    </div>
+                    <div class="modal-body">
+                        <form id="log" class="px-4" action="logindo" method="get">
+                            <div class="form-group">
+                                <label for="login_email" class="sr-only">이메일 주소</label>
+                                <input type="email"
+                                       class="form-control border-top-0 border-right-0 border-left-0 rounded-0"
+                                       id="login_email" placeholder="이메일 주소">
+                            </div>
+                            <div class="form-group">
+                                <label for="login_pw" class="sr-only">비밀번호</label>
+                                <input type="password"
+                                       class="form-control border-top-0 border-right-0 border-left-0 rounded-0"
+                                       id="login_pw" placeholder="비밀번호">
+                            </div>
+                            <div class="row p-0 m-0">
+                                <div class="form-group form-inline col-6">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input"
+                                               id="login_check">
+                                        <label class="form-check-label text-muted" for="login_check">
+                                            나를 기억하기
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-6 d-flex justify-content-end">
+                                    <button type="button" id="login" class="btn btn-primary">로그인</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{url_for('register_page')}}">계정이 없으신가요?</a>
+                        <a href="{{url_for('recovery_page')}}">비밀번호를 잊으셨나요?</a>
+                    </div>
+                </div>
+            </div>
+        </div><!-- login_modal end -->
+
+        <div id="wrap">
+            <header>
+                <nav class="navbar fixed-top py-0 px-4">
+                    <a class="navbar-brand" href="{{url_for('index_page')}}">
+                        <img class="align-middle" src="{{url_for('static', filename='images/html/common/logo.svg')}}"
+                             alt="logo_img">
+                    </a>
+                    <div class="dropdown no-arrow">
+                        <button type="button" class="user_btn btn m-0 p-0" data-toggle="modal"
+                                data-target="#login_modal">
+                            <img class="align-middle"
+                                 src="{{url_for('static', filename='images/html/common/icons/user.svg')}}"
+                                 alt="user_btn">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user_dropdown_btn">
+                            <a class="dropdown-item" href="#">user님 환영합니다</a>
+                            <a class="dropdown-item" href="{{url_for('dashboard_page')}}">대쉬보드</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-right" href="#">로그아웃</a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="py-5">
+                <div class="container py-5">
+                    <div class="text-center">
+                        <p class="small">Account Recovery</p>
+                        <h1>MovieFinder 계정 이메일 주소</h1>
+                        <p>복구하려는 계정의 이메일 주소를 입력해주세요</p>
+                    </div>
+                    <div class="jumbotron">
+                        <form>
+                            <div class="form-group text-center">
+                                <label for="recovery_email">이메일 주소</label>
+                                <input type="email" class="form-control" id="recovery_email">
+                            </div>
+                            <button type="submit" class="btn btn-primary d-block mx-auto">계정 찾기</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container pt-5">
+                    <p class="text-center">질문 있으신가요? 문의전화 : 02-000-0000</p>
+                    <ul class="list-group list-group-horizontal text-center">
+                        <li class="list-group-item col">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#">자주 묻는 질문</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">투자정보(IR)</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">개인정보</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">속도 테스트</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item col">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#">고객센터</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">입사정보</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">쿠키설정</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">법적고지</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item col">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#">계정</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">지원 디바이스</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">회사 정보</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">미디어 센터</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item col">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="#">이용약관</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">문의하기</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="container text-center">
+                    <p>MovieFinder</p>
+                    <p>&copy; 2019 MovieFinder All rights Reserved</p>
+                    <address>경기도 상록구 안산시 119-119 119빌딩</address>
+                </div>
+            </footer>
+        </div>
+
+        <!-- JS Common -->
+        <script src="{{url_for('static', filename='js/common.js')}}"></script>
+    </body>
+
+</html>

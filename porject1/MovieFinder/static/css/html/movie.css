@@ -1,0 +1,72 @@
+  .media{
+        background-color: #0D1224;
+
+    }
+
+    .movieImg{
+        width: 300px;
+        height: 370px;
+        margin: 6%;
+    }
+
+    .media-body{
+        margin: 5%;
+        color: white;
+        font-size: 17px;
+    }
+
+    .cont{
+        width: 80%;
+    }
+
+    .overview{
+        margin-bottom: 15px;
+
+    }
+
+    .carousel{
+        width: 60%;
+        margin-left: 20%;
+    }
+
+    /*댓글*/
+
+    .writeBoxTiles{
+        margin: 0 20%;
+        background-color: white;
+    }
+
+    .writelabel{
+        font-size: 30px;
+        margin: 2%;
+    }
+
+    .writeBox{
+        display: flex;
+    }
+
+    #exampleFormControlTextarea1{
+        margin: 2%;
+    }
+
+    .submitbtn{
+        margin: 6% 2%;
+        width: 15%;
+        height: 55px;
+    }
+
+
+    .cbox{
+        height: auto;
+        margin: 3%;
+    }
+
+    .likebtn{
+
+        float:right;
+        margin-right: 6%;
+    }
+
+    .cbox-in{
+        margin: 3%;
+    }

@@ -1,0 +1,81 @@
+{% extends '/html/layout.html' %}
+
+{% block content %}
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#event_box').empty()
+
+        $.ajax({
+            type: "GET",
+            url: "event_list",
+            data: {},
+            success: function (response) {
+                let list = response['eventList']
+                for (let i = 0; i < list.length; i++) {
+                    make_event(list[i]["img"], list[i]["link"], list[i]["title"], list[i]["date"])
+                }
+            }
+        })
+    })
+
+
+    function make_event(img, link, title, date) {
+    let temp_html =
+        `
+        <div class="col mb-4">
+            <div class="card">
+                <a href="${link}">
+                    <img src="${img}" class="card-img-top" alt="movie_image">
+                </a>
+                <div class="card-header">
+                    ${title}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">${date}</p>
+                </div>
+                <div class="card-footer text-right">
+                    <a href="${link}" class="text-muted">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        `
+        $("#event_box").append(temp_html)
+    }
+
+</script>
+
+
+<section class="col-xl-11 pt-3">
+    <article class="container py-4 mb-3 text-white">
+        <div class="text-center">
+            <p class="small">MovieFinder</p>
+            <h1>이벤트</h1>
+        </div>
+    </article>
+    <article class="container-fluid m-0 p-0">
+        <h3 class="text-white">최신 이벤트</h3>
+        <div id="event_box" class="row row-cols-3 mb-3">
+        <div class="card-deck mb-3">
+            <div class="card">
+                <a href="#">
+                    <img src="../../static/images/index/2.jpg" class="card-img-top" alt="movie_image">
+                </a>
+                <div class="card-header">
+                    행사 기업
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">이벤트 제목</h5>
+                    <p class="card-text">이벤트 설명</p>
+                </div>
+                <div class="card-footer text-right">
+                    <a href="#" class="text-muted">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

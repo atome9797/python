@@ -1,0 +1,54 @@
+{% extends '/html/layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+<link rel="stylesheet" href="{{url_for('static', filename='css/html/movie.css')}}">
+<script src="{{url_for('static', filename='js/html/movieReview.js')}}"></script>
+
+
+<section class="col-xl-11 p-0 m-0 body">
+    <article class="container py-4 mb-3 text-white">
+        <div class="text-center">
+            <p class="small">MovieFinder</p>
+            <h1>영화</h1>
+        </div>
+    </article>
+
+    {% if posts %}
+    {% for post in posts %}
+    <!--영화 정보-->
+    <div class="movieInfo">
+        <div class="media">                                                                          <!--alt는 그림 엑박시 나타나는 값-->
+              <img src="https://image.tmdb.org/t/p/w185{{post.movieImg}}" class="mr-3 movieImg" alt="이미지 없음">
+              <div class="media-body">
+                <input type="hidden" name="movieId" id="movieId" value="{{post.movieId}}"/>
+                <h4 class="mt-0" style="margin-bottom: 25px">{{post.movieTitle}}</h4>
+                <h5 class="overview">개봉일 : {{post.movieDate}}</h5>
+                <h5 class="overview">평점 : {{post.movieRate}}</h5>
+                <h5 class="overview">줄거리</h5>
+                 <p class="cont">{{post.overview}}</p>
+              </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <!--영화에 대한 댓글-->
+      <div class="form-group">
+          <div class="writeBoxTiles">
+                <div style="font-size: 18px; margin-left: 10px" class="sub">댓글을 작성해야 다른 사람들의 글을 볼 수 있습니다.</div>
+                <label for="exampleFormControlTextarea1" class="writelabel">댓글쓰기</label>
+                <div class="writeBox">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <button type="button" class="btn btn-secondary submitbtn">작성</button>
+                </div>
+                <div class="comment">
+
+                </div>
+          </div>
+      </div>
+
+</section>
+{% endblock %}

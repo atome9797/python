@@ -1,0 +1,123 @@
+{% extends '/html/layout.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+
+<script src="{{url_for('static', filename='js/html/movie.js')}}"></script>
+<link rel="stylesheet" href="{{url_for('static', filename='css/html/movie.css')}}">
+
+<script>
+
+    $(document).ready(function () {
+        $(document).on('click','.swiper-wrapper .chooseMovie',function() {
+                 var movieId = $(this).children().children("#id").val();
+                 $('.movieID').val(movieId);
+                $('.frm').submit();
+             });
+    })
+</script>
+<section class="col-xl-11 p-0 m-0 body">
+    <article class="container py-4 mb-3 text-white">
+        <div class="text-center">
+            <p class="small">MovieFinder</p>
+            <h1>영화</h1>
+            <h4>최신영화가 한 가득~! 마음 껏 구경하세요</h4>
+        </div>
+    </article>
+
+    <article class="container-fluid m-0 p-0">
+        <div id="movie_slide" class="carousel slide" data-ride="carousel" style="width: 60%;margin-left: 20%;">
+            <ol class="carousel-indicators">
+                <li data-target="#movie_slide" data-slide-to="0" class="active"></li>
+                <li data-target="#movie_slide" data-slide-to="1"></li>
+                <li data-target="#movie_slide" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="#">
+                        <img src="../../static/images/index/1.jpg" class="d-block w-100" alt="slide_image01">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#">
+                        <img src="../../static/images/index/2.jpg" class="d-block w-100" alt="slide_image02">
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="#">
+                        <img src="../../static/images/index/4.jpg" class="d-block w-100" alt="slide_image03">
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#movie_slide" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#movie_slide" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </article>
+
+    <article class="container-fluid">
+        <!-- 최신영화 -->
+        <h3 class="text-white" style="margin-top: 50px">최신영화</h3>
+        <div class="card-deck">
+            <div class="swiper-container">
+                    <form class="frm" action="FinderMovieReview" method="post">
+                        <input type="hidden" class="movieID" name="movieID" value="movieID">
+                    </form>
+                    <div class="swiper-wrapper">
+                    </div>
+                <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+                <!-- 페이징 -->
+                <!--<div class="swiper-pagination"></div>-->
+
+            </div>
+        </div><!-- 최신영화 end -->
+
+        <!-- 인기영화 -->
+        <h3 class="text-white" style="margin-top: 50px">인기 영화</h3>
+        <div class="popularCard-deck">
+            <div class="swiper-container">
+                <form class="frm" action="FinderMovieReview" method="post">
+                        <input type="hidden" class="movieID" name="movieID" value="movieID">
+                </form>
+                <div class="swiper-wrapper">
+                </div>
+
+                <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+                <!-- 페이징 -->
+                <!-- <div class="swiper-pagination"></div>-->
+
+            </div>
+        </div><!-- 인기영화 end -->
+
+        <!-- 최고 평점 영화 -->
+        <h3 class="text-white" style="margin-top: 50px">최고 평점 영화</h3>
+        <div class="RateCard-deck">
+            <div class="swiper-container">
+                <form class="frm" action="FinderMovieReview" method="post">
+                        <input type="hidden" class="movieID" name="movieID" value="movieID">
+                </form>
+                <div class="swiper-wrapper">
+                </div>
+
+                <div class="swiper-button-next"></div><!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+                <div class="swiper-button-prev"></div><!-- 이전 버튼 -->
+
+                <!-- 페이징 -->
+                <!--<div class="swiper-pagination"></div>-->
+
+            </div>
+        </div><!-- 최고 평점 영화 end -->
+
+    </article>
+</section>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends '/html/layout.html' %}
+ 
+{% block content %}
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#magazine_box').empty()
+
+        $.ajax({
+            type: "GET",
+            url: "magazine_list",
+            data: {},
+            success: function (response) {
+                let list = response['magazineList']
+                for (let i = 0; i < list.length; i++) {
+                    make_magazine(list[i]["img"], list[i]["link"], list[i]["title"], list[i]["subTitle"] , list[i]["content"])
+                }
+            }
+        })
+    })
+
+
+    function make_magazine(img, link, title, subtitle, content) {
+    let temp_html =
+        `
+        <div class="col mb-4">
+            <div class="card">
+                <a href="${link}">
+                    <img src="${img}" class="card-img-top" alt="movie_image">
+                </a>
+                <div class="card-header">
+                    ${title}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${subtitle}</h5>
+                    <p class="card-text">${content}</p>
+                </div>
+                <div class="card-footer text-right">
+                    <a href="${link}" class="text-muted">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+        `
+        $("#magazine_box").append(temp_html)
+    }
+
+</script>
+
+<section class="col-xl-11 pt-3">
+    <article class="container py-4 mb-3 text-white">
+        <div class="text-center">
+            <p class="small">MovieFinder</p>
+            <h1>영화 매거진</h1>
+        </div>
+    </article>
+    <article class="container-fluid m-0 p-0">
+        <h3 class="text-white">최신 기사</h3>
+        <div id="magazine_box" class="row row-cols-3 mb-3">
+            <div class="card-deck mb-3">
+                <div class="card">
+                    <a href="#">
+                        <img src="../../static/images/index/1.jpg" class="card-img-top" alt="movie_image">
+                    </a>
+                    <div class="card-header">
+                        영화 제목
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">기사 제목</h5>
+                        <p class="card-text">매거진 설명</p>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="#" class="text-muted">자세히 보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+{% endblock %}

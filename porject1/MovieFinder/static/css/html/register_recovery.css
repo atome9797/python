@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* reset */
+* {
+    margin:0;
+    padding:0;
+}
+li {list-style:none;}
+a {text-decoration:none;}
+a:hover {text-decoration:none;}
+legend {display:none;}
+img, fieldset, iframe {border:0;}
+img {vertical-align:top;}
+table {border-collapse:collapse;}
+
+/* bootstrap custom */
+
+    /* dropdown no-arrow */
+    .dropdown.no-arrow .dropdown-toggle::after {display:none;}
+
+/* 이용약관 클릭가능 */
+#resister_agree {cursor:pointer;}
+#resister_agree:hover {text-decoration:underline;}
+
+/* 이용약관 modal 크기 */
+#agree_modal .modal-body {height:300px;}
+
+/* layout */
+body {background:#222;}
+section {background:#fff;}
+footer {color:#888; font-size:12px; border-top:1px solid #E5E5E5;}
+
+/* header */
+header nav {border-bottom:1px solid #777; background:#0D1224;}
+header img {height:20px;}
+header .dropdown-menu {font-size:11px;}
+
+/* login_modal */
+#login_modal {font-size:11px;}
+#login_modal img {width:70px; height:70px;}
+#login_modal .form-control::placeholder {font-size:11px;}
+#login_modal .form-control:focus {box-shadow:none;}
+
+/* footer */
+footer .list-group-item {background:none; border:none;}

@@ -1,0 +1,140 @@
+{% extends '/html/layout.html' %}
+
+
+{% block content %}
+<section class="col-xl-11 pt-3">
+    <article class="container-fluid row m-0 p-0">
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <img src="../../static/images/index/1.jpg" alt="grade" class="img-fluid img-thumbnail"
+                style="height:300px;">
+        </div>
+        <div class="col-md-6">
+            <div class="jumbotron">
+                {% if movie_posts %}
+                {% for post in movie_posts %}
+                <h3>{{post.name}}님 환영합니다</h3>
+                댓글을 많이 달수록 회원등급이 높아져요~!
+                다양한 이벤트도 마음껏 즐기세요 !
+                <p class="lead"></p>
+                <hr class="my-4">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        영화 검색수
+                        <span class="badge badge-primary badge-pill">{{post.privacyCount}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        총 댓글수
+                        <span class="badge badge-primary badge-pill">{{post.commentCount}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        회원 등급
+                        <span class="badge badge-primary badge-pill">{{post.level}}</span>
+                    </li>
+                </ul>
+                {% endfor %}
+                {% endif %}
+
+                {% if posts %}
+                {% for post in posts %}
+                <h3>{{post.name}}님 환영합니다</h3>
+                댓글을 많이 달수록 회원등급이 높아져요~!
+                다양한 이벤트도 마음껏 즐기세요 !
+                <p class="lead"></p>
+                <hr class="my-4">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        영화 검색수
+                        <span class="badge badge-primary badge-pill">{{post.privacyCount}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        총 댓글수
+                        <span class="badge badge-primary badge-pill">{{post.commentCount}}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        회원 등급
+                        <span class="badge badge-primary badge-pill">{{post.level}}</span>
+                    </li>
+                </ul>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </article>
+    <article class="container-fluid m-0 p-0">
+
+        <h3 class="text-white">History</h3>
+
+        <div class="card-deck">
+            {% if movie_posts %}
+            {% for post in movie_posts %}
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w185{{post.privacy1['movieImg']}}" class="card-img-top" alt="movie_image">
+                <input type="hidden" name="id" class="post" value="{{post.privacy1['movieId']}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.privacy1['movieTitle']}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">개봉일: {{post.privacy1['movieDate']}}</small>
+                    <small class="text-muted">평점: {{post.privacy1['movieRate']}}</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w185{{post.privacy2['movieImg']}}" class="card-img-top" alt="movie_image">
+                <input type="hidden" name="id" class="post" value="{{post.privacy2['movieId']}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.privacy2['movieTitle']}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">개봉일: {{post.privacy2['movieDate']}}</small>
+                    <small class="text-muted">평점: {{post.privacy2['movieRate']}}</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w185{{post.privacy3['movieImg']}}" class="card-img-top" alt="movie_image">
+                <input type="hidden" name="id" class="post" value="{{post.privacy3['movieId']}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.privacy3['movieTitle']}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">개봉일: {{post.privacy3['movieDate']}}</small>
+                    <small class="text-muted">평점: {{post.privacy3['movieRate']}}</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w185{{post.privacy4['movieImg']}}" class="card-img-top" alt="movie_image">
+                <input type="hidden" name="id" class="post" value="{{post.privacy4['movieId']}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.privacy4['movieTitle']}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">개봉일: {{post.privacy4['movieDate']}}</small>
+                    <small class="text-muted">평점: {{post.privacy4['movieRate']}}</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w185{{post.privacy5['movieImg']}}" class="card-img-top" alt="movie_image">
+                <input type="hidden" name="id" class="post" value="{{post.privacy5['movieId']}}"/>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.privacy5['movieTitle']}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">개봉일: {{post.privacy5['movieDate']}}</small>
+                    <small class="text-muted">평점: {{post.privacy5['movieRate']}}</small>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            {% if posts %}
+            {% for post in posts %}
+            <div style="font-size: 20px; color: white; margin-left: 15px; margin-bottom: 400px;"> 영화 5개이상 볼 시 확인가능</div>
+            {% endfor %}
+            {% endif %}i
+        </div><!-- History end -->
+    </article>
+</section>
+{% endblock %}

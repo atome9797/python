@@ -1,0 +1,288 @@
+{% extends '/html/layout.html' %}
+ 
+{% block content %}
+
+
+<script src="{{url_for('static', filename='js/html/movieFinder.js')}}"></script>
+
+<section class="col-xl-11 pt-3">
+    <article id="finder_box" class="container py-4 mb-3 rounded">
+        <div class="text-center">
+            <p class="small">MovieFinder</p>
+            <h1>좋아하는 영화, 찾고싶은 영화를 찾아드립니다.</h1>
+        </div>
+        <hr class="bg-white">
+        <form>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-2 col-form-label text-center align-self-center">영화검색</legend>
+                    <div class="col-10 input-group">
+
+                        <input type="text" class="form-control" id="movie_search" placeholder="키워드를 입력해주세요."
+                            aria-label="Text input with dropdown button">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-2 col-form-label text-center align-self-center">장르</legend>
+
+                    <!-- check_line 1 -->
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="53"
+                                value="53">
+                            <label class="form-check-label" for="53">
+                                스릴러
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="10751"
+                                value="10751">
+                            <label class="form-check-label" for="10751">
+                                가족
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="9648"
+                                value="9648">
+                            <label class="form-check-label" for="9648">
+                                미스테리
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="27"
+                                value="27">
+                            <label class="form-check-label" for="27">
+                                공포
+                            </label>
+                        </div>
+                    </div><!-- check_line 1 end -->
+
+                    <!-- check_line 2 -->
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="10770" value="10770">
+                            <label class="form-check-label" for="10770">
+                                 TV 영화
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="99" value="99">
+                            <label class="form-check-label" for="99">
+                                다큐
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="28"
+                                value="28">
+                            <label class="form-check-label" for="28">
+                                액션
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="80" value="80">
+                            <label class="form-check-label" for="80">
+                                범죄
+                            </label>
+                        </div>
+
+                    </div><!-- check_line 2 end -->
+
+                    <!-- check_line 3 -->
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="878" value="878">
+                            <label class="form-check-label" for="878">
+                                SF
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="37" value="37">
+                            <label class="form-check-label" for="37">
+                                서부
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="36"
+                                value="36">
+                            <label class="form-check-label" for="36">
+                                역사
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="14"
+                                value="14">
+                            <label class="form-check-label" for="14">
+                                판타지
+                            </label>
+                        </div>
+
+                    </div><!-- check_line 3 end -->
+
+                    <!-- check_line 4 -->
+                    <div class="col-2">
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="35"
+                                value="35">
+                            <label class="form-check-label" for="35">
+                                코미디
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="18" value="18">
+                            <label class="form-check-label" for="18">
+                                드라마
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="12"
+                                value="12">
+                            <label class="form-check-label" for="12">
+                                모험
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="10402" value="10402">
+                            <label class="form-check-label" for="10402">
+                                음악
+                            </label>
+                        </div>
+
+                    </div><!-- check_line 4 end -->
+
+                    <!-- check_line 5 -->
+                    <div class="col-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="10752" value="10752">
+                            <label class="form-check-label" for="10752">
+                                전쟁
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="10749" value="10749">
+                            <label class="form-check-label" for="10749">
+                                로맨스
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="genre" id="16"
+                                value="16">
+                            <label class="form-check-label" for="16">
+                                애니
+                            </label>
+                        </div>
+                    </div><!-- check_line 5 end -->
+
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-2 col-form-label text-center align-self-center">제작국가</legend>
+
+                    <!-- check_line 1 -->
+                    <div class="col">
+                       <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_ind" value="id">
+                            <label class="form-check-label" for="country_ind">
+                                인도
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_kor" value="ko">
+                            <label class="form-check-label" for="country_kor">
+                                한국
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_usa" value="en">
+                            <label class="form-check-label" for="country_usa">
+                                미국
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_jpn" value="ja">
+                            <label class="form-check-label" for="country_jpn">
+                                일본
+                            </label>
+                        </div>
+                    </div>
+                    <!-- check_line 1 end -->
+
+                    <!-- check_line 2 -->
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_chn" value="cn">
+                            <label class="form-check-label" for="country_chn">
+                                중국
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_fra" value="fr">
+                            <label class="form-check-label" for="country_fra">
+                                프랑스
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="country" id="country_deu" value="de">
+                            <label class="form-check-label" for="country_deu">
+                                독일
+                            </label>
+                        </div>
+
+                    </div>
+                    <!-- check_line 2 end -->
+
+                </div>
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <legend class="col-2 col-form-label text-center align-self-center">관람등급</legend>
+
+                    <!-- check_line 1 -->
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="grade" id="grade_all" value="True">
+                            <label class="form-check-label" for="grade_all">
+                                전체
+                            </label>
+                        </div>
+                    </div>
+                    <!-- check_line 1 end -->
+
+                    <!-- check_line 2 -->
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="grade" id="grade_r" value="False">
+                            <label class="form-check-label" for="grade_r">
+                                청소년 관람가능
+                            </label>
+                        </div>
+                    </div>
+                    <!-- check_line 3 end -->
+
+                </div>
+            </fieldset>
+
+            <hr class="bg-white">
+            <button type="button" class="btn btn-primary w-50 d-flex justify-content-center mx-auto"
+                id="finder_btn">검색</button>
+        </form>
+    </article>
+    <article class="container-fluid m-0 p-0">
+        <h3 class="text-white">검색결과</h3>
+        <form id="frm" action="FinderMovieReview" method="post">
+            <input type="hidden" id="movieID" name="movieID" value="movieID">
+        </form>
+        <div class="cardList">
+
+        </div>
+    </article>
+</section>
+{% endblock %}

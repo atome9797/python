@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+/* reset */
+* {
+    margin:0;
+    padding:0;
+}
+li {list-style:none;}
+a {text-decoration:none;}
+a:hover {text-decoration:none;}
+img, fieldset, iframe {border:0;}
+img {vertical-align:top;}
+table {border-collapse:collapse;}
+
+/* bootstrap custom */
+    /* dropdown no-arrow */
+    .dropdown.no-arrow .dropdown-toggle::after {display:none;}
+
+/* layout */
+body {background:#222;}
+header {height:41px;}
+nav {background:#0D1224;}
+main {position:relative;}
+section {background-image:url(../../images/html/common/curtain.png); background-size:100% 100%;}
+footer {color:#888; font-size:12px; display:none;}
+
+/* header */
+header nav {border-bottom:1px solid #777;}
+header img {height:20px;}
+header .dropdown-menu {font-size:11px;}
+
+/* side_nav */
+#side_nav {border-right:1px solid #777; position:fixed; top:0; left:0; margin-top:41px; z-index:1;}
+#side_nav .nav-item {height:45px;}
+#side_nav .nav-item a {opacity:0.2; transition:all 0.5s ease;}
+#side_nav a img {height:30px;}
+#side_nav .nav-item:hover a {opacity:1; border-right:2px solid #f4a033; border-left:2px solid #f4a033;}
+#side_nav .nav-item small {display:none;}
+#side_nav .nav-item:hover small {display:block; color:#f3f3f3;}
+#f_btn {position:absolute; bottom:10%; left:50%; z-index:1; width:30px; height:30px; margin-left:-15px;}
+#f_btn img {width:15px; height:15px;}
+
+/* login_modal */
+#login_modal {font-size:11px;}
+#login_modal img {width:70px; height:70px;}
+#login_modal .form-control::placeholder {font-size:11px;}
+#login_modal .form-control:focus {box-shadow:none;}
+
+/* footer */
+footer .list-group-item {background:none; border:none;}
+
+
+/* ----- page ----- */
+
+    /* dashboard */
+
+    /* movie */
+
+    /* finder */
+    #finder_box {background:#29353D; color:#f3f3f3;}
+    #finder_box legend {color:#E8EA8F;}
+
+    /* magazine */
+
+    /* event */
